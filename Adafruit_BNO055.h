@@ -158,6 +158,25 @@ public:
     BNO055_SYS_TRIGGER_ADDR = 0X3F,
     BNO055_TEMP_SOURCE_ADDR = 0X40,
 
+    /* Interrupt config registers PAGE 1 */
+    BNO055_INTR_EN_ADDR                                     = 0x10,
+    BNO055_INTR_MSK_ADDR                                    = 0x0F,
+    BNO055_INTR_ACCEL_AM_THRES                              = 0x11,
+    BNO055_INTR_ACCEL_SETT                                  = 0x12,
+    BNO055_INTR_ACCEL_HG_DUR                                = 0x13,
+    BNO055_INTR_ACCEL_HG_THRES                              = 0x14,
+    BNO055_INTR_ACCEL_NM_THRES                              = 0x15,
+    BNO055_INTR_ACCEL_NM_SETT                               = 0x16,
+    BNO055_INTR_GYR_SETT                                    = 0x17,
+    BNO055_INTR_GYR_HR_X_SET                                = 0x18,
+    BNO055_INTR_GYR_DUR_X                                   = 0x19,
+    BNO055_INTR_GYR_HR_Y_SET                                = 0x1A,
+    BNO055_INTR_GYR_DUR_Y                                   = 0x1B,
+    BNO055_INTR_GYR_HR_Z_SET                                = 0x1C,
+    BNO055_INTR_GYR_DUR_Z                                   = 0x1D,
+    BNO055_INTR_GYR_AM_THRES                                = 0x1E,
+    BNO055_INTR_GYR_AM_SET                                  = 0x1F,
+
     /* Axis remap registers */
     BNO055_AXIS_MAP_CONFIG_ADDR = 0X41,
     BNO055_AXIS_MAP_SIGN_ADDR = 0X42,
@@ -297,6 +316,7 @@ public:
   imu::Vector<3> getVector(adafruit_vector_type_t vector_type);
   imu::Quaternion getQuat();
   int8_t getTemp();
+  int8_t readIntStatus();
 
   /* Adafruit_Sensor implementation */
   bool getEvent(sensors_event_t *);
