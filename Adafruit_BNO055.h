@@ -22,8 +22,24 @@
 #ifndef __ADAFRUIT_BNO055_H__
 #define __ADAFRUIT_BNO055_H__
 
+<<<<<<< HEAD
 #include "Arduino.h"
 #include <Wire.h>
+||||||| constructed merge base
+#include <iostream>
+
+#if (ARDUINO >= 100)
+ #include "Arduino.h"
+#else
+ #include "WProgram.h"
+#endif
+=======
+#if (ARDUINO >= 100)
+ #include "Arduino.h"
+#else
+ #include "WProgram.h"
+#endif
+>>>>>>> Still having issue with linker picking up on 'collect2' error, won't build firmware on Teensy when this library is used.
 
 
 #include <Adafruit_Sensor.h>
