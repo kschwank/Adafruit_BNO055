@@ -22,29 +22,12 @@
 #ifndef __ADAFRUIT_BNO055_H__
 #define __ADAFRUIT_BNO055_H__
 
-<<<<<<< HEAD
 #include "Arduino.h"
 #include <Wire.h>
-||||||| constructed merge base
-#include <iostream>
-
-#if (ARDUINO >= 100)
- #include "Arduino.h"
-#else
- #include "WProgram.h"
-#endif
-=======
-#if (ARDUINO >= 100)
- #include "Arduino.h"
-#else
- #include "WProgram.h"
-#endif
->>>>>>> Still having issue with linker picking up on 'collect2' error, won't build firmware on Teensy when this library is used.
 
 
 #include <Adafruit_Sensor.h>
 #include <utility/imumaths.h>
-#include <string>
 
 /** BNO055 Address A **/
 #define BNO055_ADDRESS_A (0x28)
@@ -75,6 +58,7 @@ typedef struct {
   int16_t mag_radius; /**< magnetometer radius */
 } adafruit_bno055_offsets_t;
 
+<<<<<<< HEAD
 /*!
  *  @brief  Class that stores state and functions for interacting with
  *          BNO055 Sensor
