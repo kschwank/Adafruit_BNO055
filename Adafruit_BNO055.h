@@ -44,6 +44,7 @@
 
 #include <Adafruit_Sensor.h>
 #include <utility/imumaths.h>
+#include <string>
 
 /** BNO055 Address A **/
 #define BNO055_ADDRESS_A (0x28)
