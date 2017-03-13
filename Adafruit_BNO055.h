@@ -58,7 +58,6 @@ typedef struct {
   int16_t mag_radius; /**< magnetometer radius */
 } adafruit_bno055_offsets_t;
 
-<<<<<<< HEAD
 /*!
  *  @brief  Class that stores state and functions for interacting with
  *          BNO055 Sensor
@@ -301,6 +300,15 @@ public:
     VECTOR_GRAVITY = BNO055_GRAVITY_DATA_X_LSB_ADDR
   } adafruit_vector_type_t;
 
+  typedef enum {
+    ACC_NM                                                  = 7,
+    ACC_SM                                                  = 0x7,
+    ACC_AM                                                  = 6, // default
+    ACC_HIGH_G                                              = 5,
+    GYR_HIGH_RATE                                           = 3,
+    GYRO_AM                                                 = 2
+  } adafruit_bno055_intr_en_t;
+
   Adafruit_BNO055(int32_t sensorID = -1, uint8_t address = BNO055_ADDRESS_A,
                   TwoWire *theWire = &Wire);
 
@@ -308,6 +316,7 @@ public:
   void setMode(adafruit_bno055_opmode_t mode);
   void setAxisRemap(adafruit_bno055_axis_remap_config_t remapcode);
   void setAxisSign(adafruit_bno055_axis_remap_sign_t remapsign);
+  bool enableMotionInt     ( adafruit_bno055_intr_en_t int_en_code, int8_t duration, int8_t threshold, String flags );
   void getRevInfo(adafruit_bno055_rev_info_t *);
   void setExtCrystalUse(boolean usextal);
   void getSystemStatus(uint8_t *system_status, uint8_t *self_test_result,
