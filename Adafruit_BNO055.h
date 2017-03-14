@@ -316,9 +316,11 @@ public:
   void setMode(adafruit_bno055_opmode_t mode);
   void setAxisRemap(adafruit_bno055_axis_remap_config_t remapcode);
   void setAxisSign(adafruit_bno055_axis_remap_sign_t remapsign);
-  bool enableMotionInt     ( adafruit_bno055_intr_en_t int_en_code, int8_t duration, int8_t threshold, String flags );
+  bool enableInterrupts    ( adafruit_bno055_intr_en_t int_en_code, bool triggerPin);
+  bool enableInterruptAxes ( adafruit_bno055_intr_en_t int_en_code, String axes );
   void getRevInfo(adafruit_bno055_rev_info_t *);
   void setExtCrystalUse(boolean usextal);
+  char * checkInterruptStates( void );
   void getSystemStatus(uint8_t *system_status, uint8_t *self_test_result,
                        uint8_t *system_error);
   void getCalibration(uint8_t *system, uint8_t *gyro, uint8_t *accel,
