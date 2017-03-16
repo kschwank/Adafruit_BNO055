@@ -320,9 +320,10 @@ public:
   bool enableInterruptAxes ( adafruit_bno055_intr_en_t int_en_code, String axes );
   void getRevInfo(adafruit_bno055_rev_info_t *);
   void setExtCrystalUse(boolean usextal);
-  char * checkInterruptStates( void );
+  void checkInterruptStates();
   void getSystemStatus(uint8_t *system_status, uint8_t *self_test_result,
                        uint8_t *system_error);
+  void displaySystemStatus();
   void getCalibration(uint8_t *system, uint8_t *gyro, uint8_t *accel,
                       uint8_t *mag);
 
@@ -351,6 +352,7 @@ private:
   byte read8(adafruit_bno055_reg_t);
   bool readLen(adafruit_bno055_reg_t, byte *buffer, uint8_t len);
   bool write8(adafruit_bno055_reg_t, byte value);
+  void  printWithZeros ( uint8_t input, char flag );
 
   uint8_t _address;
   TwoWire *_wire;
