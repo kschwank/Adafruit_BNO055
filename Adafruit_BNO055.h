@@ -178,6 +178,12 @@ public:
     BNO055_INTR_GYR_AM_THRES                                = 0x1E,
     BNO055_INTR_GYR_AM_SET                                  = 0x1F,
 
+    /* Sensor config registers */
+    BNO055_ACCEL_CONFIG                                     = 0x08,
+    BNO055_MAG_CONFIG                                       = 0x09,
+    BNO055_GYRO_CONFIG0                                     = 0x0A,
+    BNO055_GYRO_CONFIG1                                     = 0x0B,
+
     /* Axis remap registers */
     BNO055_AXIS_MAP_CONFIG_ADDR = 0X41,
     BNO055_AXIS_MAP_SIGN_ADDR = 0X42,
@@ -302,7 +308,7 @@ public:
 
   typedef enum {
     ACC_NM                                                  = 7,
-    ACC_SM                                                  = 0x7,
+    ACC_SM                                                  = 8,
     ACC_AM                                                  = 6, // default
     ACC_HIGH_G                                              = 5,
     GYR_HIGH_RATE                                           = 3,
@@ -316,8 +322,9 @@ public:
   void setMode(adafruit_bno055_opmode_t mode);
   void setAxisRemap(adafruit_bno055_axis_remap_config_t remapcode);
   void setAxisSign(adafruit_bno055_axis_remap_sign_t remapsign);
-  bool enableInterrupts    ( adafruit_bno055_intr_en_t int_en_code, bool triggerPin);
-  bool enableInterruptAxes ( adafruit_bno055_intr_en_t int_en_code, String axes );
+  bool enableInterrupts( adafruit_bno055_intr_en_t int_en_code, bool triggerPin);
+  bool enableInterruptAxes( adafruit_bno055_intr_en_t int_en_code, String axes );
+  bool setIntThreshold( adafruit_bno055_intr_en_t int_en_code, int duration );
   void getRevInfo(adafruit_bno055_rev_info_t *);
   void setExtCrystalUse(boolean usextal);
   void checkInterruptStates();
